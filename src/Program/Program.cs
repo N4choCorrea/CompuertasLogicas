@@ -5,23 +5,25 @@
 //--------------------------------------------------------------------------------
 
 using System;
-using ClassLibrary;
+using System.Collections.Generic;
 
-namespace ConsoleApplication
+using Library;
+public class Program
 {
-    /// <summary>
-    /// Programa de consola de demostración.
-    /// </summary>
-    public static class Program
-    {
-        /// <summary>
-        /// Punto de entrada al programa principal.
-        /// </summary>
-        public static void Main()
-        {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
-        }
-    }
+    public static void Main(string[] args)
+{
+    AndGate andGate = new AndGate("andGate");
+    NotGate notGate = new NotGate("notGate");
+    OrGate orGate = new OrGate("orGate");
+    IInput input1 = new LogicInput(true);
+    IInput input2 = new LogicInput(false);
+    IInput input3 = new LogicInput(true);
+    andGate.AddInput(input1);
+    andGate.AddInput(input2);
+    orGate.AddInput(input3);
+    orGate.AddInput(andGate);
+    notGate.AddInput(orGate);
+    Console.WriteLine(notGate.Calculate());
 }
+}
+
