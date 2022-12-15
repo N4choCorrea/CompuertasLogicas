@@ -17,6 +17,18 @@ namespace Tests
             var expected = false;
             var actual = and.Calculate();
             Assert.AreEqual(expected, actual);
+            try
+            {
+                and.AddInput(input1);
+                and.AddInput(input2);
+                and.Calculate();
+                Assert.Fail();
+
+            }
+            catch (GateExceptions )
+            {
+                Assert.Pass();
+            }
            
         }
         [Test]
@@ -30,6 +42,16 @@ namespace Tests
             var expected = true;
             var actual = or.Calculate();
             Assert.AreEqual(expected, actual);
+            try 
+            {
+                or.AddInput(input1);
+                or.Calculate();
+                Assert.Fail();
+            }
+            catch (GateExceptions)
+            {
+                Assert.Pass();
+            }
         }
         [Test]
         public void NotTest()
@@ -40,6 +62,18 @@ namespace Tests
             var expected = false;
             var actual = not.Calculate();
             Assert.AreEqual(expected, actual);
+            try
+            {
+                not.AddInput(input);
+                not.Calculate();
+                Assert.Fail();
+            }
+            catch (GateExceptions)
+            {
+                Assert.Pass();
+            }
         }
-    }
+        
+        
+    }//assert.fail para las excepciones
 }

@@ -15,6 +15,7 @@ namespace Library
         }
         public override bool Calculate()
         {
+            //las excepciones en los meteodos son mejores con if y catch, en el program principal se pueden usar try y catch
             bool result = true;
             foreach (IInput input in this.Inputs)
             {
@@ -24,17 +25,15 @@ namespace Library
         }
         public bool Main()
         {   
-        try 
+        if (this.Inputs.Count < 2)
         {
-            return this.Inputs[0].Calculate() && this.Inputs[1].Calculate();
+        
+            throw new GateExceptions("AndGate must have at least two inputs");
         }
-        catch (System.IndexOutOfRangeException)
-        {
-            throw new System.IndexOutOfRangeException("AndGate must have at least two inputs");
-            
+        return this.Inputs[0].Calculate() && this.Inputs[1].Calculate();
         }
-
-        }
+       
+        
         
     }
 }

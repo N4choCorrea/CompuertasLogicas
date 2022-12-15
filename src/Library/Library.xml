@@ -4,5 +4,30 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.AndGate">
+            <summary>
+            Esta junto a la clase NotGate, OrGate, aplican el patron expert, porque son expertos parciales que comparten
+            la responsbilidad de calcular el resultado de la compuerta.
+            </summary>
+        </member>
+        <member name="T:Library.Gate">
+            <summary>
+            Se puede ver el principio de OCP ya que esta clase es abierta a la extension pero cerrada a la modificacion.	
+            Y tambien se puede ver el principio de Dip ya que esta clase no depende de clases concretas sino de interfaces, queremos introducir
+            una abstracion.
+            </summary>
+        </member>
+        <member name="M:Library.Gate.Calculate">
+            <summary>
+            Este metodo Calculate usa el patron PolyMorfismo porque se define se define en esta clase como abstracto y se usa diferente
+            dependiendo la compuerta que se este usando.Sobreescribe el metodo calculate. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.LogicInput">
+            <summary>
+            Se aplica el principio ISP ya que depende de una interface con una sola responsabilidad especifica.
+            </summary>
+        </member>
     </members>
 </doc>

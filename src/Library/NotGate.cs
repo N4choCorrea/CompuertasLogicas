@@ -14,15 +14,11 @@ namespace Library
         }
         public bool  Main()
         {
-            try 
+            if (this.Inputs.Count < 1)
             {
-                return !this.Inputs[0].Calculate();
+                throw new GateExceptions("NotGate must have at least one input");
             }
-            catch (System.IndexOutOfRangeException)
-            {
-                throw new System.IndexOutOfRangeException("NotGate must have at least one input");
-                
-            }
+            return !this.Inputs[0].Calculate();
         }
     }
 }

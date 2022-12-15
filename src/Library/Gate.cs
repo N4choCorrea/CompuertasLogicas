@@ -14,8 +14,14 @@ namespace Library
         public List<IInput> Inputs { get; set; }
         public Gate (string name)
         {
+            if (string.IsNullOrEmpty(name)) 
+            {
+                throw new ArgumentNullException("name");
+            }
             this.name = name;
             this.Inputs = new List<IInput>();
+        
+            
         }
         public void AddInput(IInput Iinput)
         {

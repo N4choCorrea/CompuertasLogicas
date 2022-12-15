@@ -19,15 +19,11 @@ namespace Library
         }
         public bool Main(string[] args)
         {
-            try 
+            if (args.Length < 2)
             {
-                return this.Inputs[0].Calculate() || this.Inputs[1].Calculate();
+                throw new GateExceptions("OrGate must have at least two inputs");
             }
-            catch (System.IndexOutOfRangeException)
-            {
-                throw new System.IndexOutOfRangeException("OrGate must have at least two inputs");
-                
-            }
+            return this.Inputs[0].Calculate() || this.Inputs[1].Calculate();
         }
         
     }
