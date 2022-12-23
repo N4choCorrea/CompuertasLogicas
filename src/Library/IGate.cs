@@ -5,7 +5,7 @@ namespace Library
 {
     public interface IGate
     {
-        public void AddInput(Gate Iinput); 
+        public void AddInput(IInput Iinput); 
        public bool Calculate(); 
     }
 }

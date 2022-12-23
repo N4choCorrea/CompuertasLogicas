@@ -8,7 +8,7 @@ namespace Library
     /// Y tambien se puede ver el principio de Dip ya que esta clase no depende de clases concretas sino de interfaces, queremos introducir
     /// una abstracion.
     /// </summary>
-    public abstract class Gate :IInput
+    public abstract class Gate :IInput, IGate
     {
         public string name { get; set; }
         public List<IInput> Inputs { get; set; }

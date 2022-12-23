@@ -14,25 +14,23 @@ namespace Library
         {
         }
         public override bool Calculate()
-        {
-            //las excepciones en los meteodos son mejores con if y catch, en el program principal se pueden usar try y catch
+        {   
+            if (this.Inputs.Count != 2)
+            {
+        
+                throw new GateExceptions("AndGate must have at least two inputs");
+            }
+            return this.Inputs[0].Calculate() && this.Inputs[1].Calculate();
+            //las excepciones en los meteodos son mejores con if y throw, en el program principal se pueden usar try y catch
             bool result = true;
             foreach (IInput input in this.Inputs)
             {
                 result = result && input.Calculate();
             }
             return result;
+            
         }
-        public bool Main()
-        {   
-        if (this.Inputs.Count < 2)
-        {
         
-            throw new GateExceptions("AndGate must have at least two inputs");
-        }
-        return this.Inputs[0].Calculate() && this.Inputs[1].Calculate();
-        }
-       
         
         
     }

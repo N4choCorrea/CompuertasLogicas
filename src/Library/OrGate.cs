@@ -10,6 +10,11 @@ namespace Library
         }
         public override bool Calculate()
         {
+            if (this.Inputs.Count< 2)
+            {
+                throw new GateExceptions("OrGate must have at least two inputs");
+            }
+            return this.Inputs[0].Calculate() || this.Inputs[1].Calculate();
             bool result = false;
             foreach (IInput input in this.Inputs)
             {
@@ -17,14 +22,7 @@ namespace Library
             }
             return result;
         }
-        public bool Main(string[] args)
-        {
-            if (args.Length < 2)
-            {
-                throw new GateExceptions("OrGate must have at least two inputs");
-            }
-            return this.Inputs[0].Calculate() || this.Inputs[1].Calculate();
-        }
+        
         
     }
 }
